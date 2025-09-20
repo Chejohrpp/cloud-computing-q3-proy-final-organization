@@ -1,94 +1,158 @@
-"use client"
-import { useState } from "react";
+"use client";
 import { motion } from "framer-motion";
+import {
+  Building2,
+  Smartphone,
+  Database,
+  Users,
+  Workflow,
+  ShieldCheck,
+} from "lucide-react";
 
-// Landing template for the course project. 
-// Drop this into `app/page.tsx` in a Next.js 14+ (app router) project with Tailwind enabled.
-// All copy is placeholder—replace for your team/company.
 
 export default function Page() {
-  const [email, setEmail] = useState("");
+  // Solo media (GIFs) para el HERO
+  const heroMedia = [
+    { alt: "Intro 1", src: "/gifs/presentation-intro.gif" },
+    { alt: "Intro 2", src: "/gifs/presentation-intro.gif" },
+  ];
 
-  const features = [
+  const services = [
     {
-      title: "Portal Web de Clientes",
-      desc: "Autogestión: consulta de saldos, movimientos y pagos.",
+      icon: <Building2 className="h-6 w-6" />,
+      title: "Portales de Autoservicio",
+      desc:
+        "Diseño y desarrollo de portales web para socios de cooperativas, con acceso seguro a saldos, pagos y estados de cuenta en línea.",
     },
     {
-      title: "API & Microservicios",
-      desc: "Capa de servicios para integraciones con sistemas legados (AS/400, ODA).",
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Aplicaciones Móviles",
+      desc:
+        "Apps para Android e iOS pensadas en usuarios rurales y urbanos, que facilitan la consulta de productos financieros y notificaciones de pago.",
     },
     {
-      title: "Observabilidad",
-      desc: "Monitoreo, logs centralizados y métricas de desempeño.",
+      icon: <Database className="h-6 w-6" />,
+      title: "Gestión de Datos Financieros",
+      desc:
+        "Modelado y administración de bases de datos para crédito y ahorro, con procesos ETL y reportes que apoyan la toma de decisiones.",
     },
     {
-      title: "Seguridad & Cumplimiento",
-      desc: "Autenticación, autorización, cifrado en tránsito y en reposo.",
+      icon: <Users className="h-6 w-6" />,
+      title: "Diseño UI/UX Inclusivo",
+      desc:
+        "Interfaces fáciles de usar y adaptadas a distintos niveles de alfabetización digital, con foco en accesibilidad y confianza.",
+    },
+    {
+      icon: <Workflow className="h-6 w-6" />,
+      title: "Automatización de Procesos",
+      desc:
+        "Implementación de flujos automatizados para originación de créditos, monitoreo de mora y generación de reportes regulatorios.",
+    },
+    {
+      icon: <ShieldCheck className="h-6 w-6" />,
+      title: "Ciberseguridad & Cumplimiento",
+      desc:
+        "Soluciones de autenticación multifactor, cifrado de datos y cumplimiento con normativas locales e internacionales (SIB, ISO).",
     },
   ];
+  
+
 
   const steps = [
     { n: 1, t: "Descubrimiento", d: "Revisión de situación actual e infraestructura." },
     { n: 2, t: "Arquitectura", d: "Diseño propuesto en nube y selección de servicios." },
     { n: 3, t: "Costeo", d: "Proyección de costos y plan de capacidad." },
-    { n: 4, t: "Implementación", d: "Plan de ejecución y despliegue incremental." },
+    { n: 4, t: "Implementación", d: "Despliegue incremental y pruebas." },
   ];
 
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-800">
-      {/* Nav */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-xl bg-slate-900 text-white grid place-items-center font-bold">F</div>
-            <span className="font-semibold">FinCloud Consulting G-5.0</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#quienes" className="hover:text-slate-900">Quiénes somos</a>
-            <a href="#actual" className="hover:text-slate-900">Situación actual</a>
-            <a href="#propuesta" className="hover:text-slate-900">Propuesta</a>
-            <a href="#ventajas" className="hover:text-slate-900">Ventajas</a>
-            <a href="#limitantes" className="hover:text-slate-900">Limitantes</a>
-            <a href="#contacto" className="hover:text-slate-900">Contacto</a>
-          </nav>
-          <a href="#contacto" className="text-sm font-medium px-4 py-2 rounded-xl bg-slate-900 text-white">Agendar Demo</a>
-        </div>
-      </header>
+  const testimonials = [
+    {
+      quote:
+        "Gracias a FinCloud G-5.0 logramos modernizar nuestros canales digitales y hoy los asociados pueden consultar saldos desde cualquier lugar. El cambio fue rápido y confiable.",
+      name: "María Fernanda López",
+      company: "Cooperativa San José de Chiquimula",
+    },
+    {
+      quote:
+        "El acompañamiento del equipo fue clave para migrar a la nube sin interrumpir operaciones. La seguridad y el soporte que ofrecen nos dan mucha tranquilidad.",
+      name: "Carlos Méndez",
+      company: "Financiera Nueva Esperanza",
+    },
+    {
+      quote:
+        "Trabajar con FinCloud G-5.0 nos permitió lanzar una aplicación móvil para nuestros clientes rurales. La adopción ha sido increíble y la satisfacción de los socios aumentó.",
+      name: "Ana Lucía Castillo",
+      company: "Cooperativa El Progreso, Zacapa",
+    },
+    {
+      quote:
+        "Su equipo entendió nuestras necesidades y propuso una arquitectura flexible que ahora usamos para crecer sin limitaciones. Han sido aliados estratégicos.",
+      name: "Luis Roberto Alvarado",
+      company: "Banco Cooperativo GT",
+    },
+    {
+      quote:
+        "Con su ayuda implementamos un portal de autoservicio que redujo hasta un 40% las visitas presenciales. Nuestros asesores ahora pueden enfocarse en brindar valor agregado.",
+      name: "Gabriela Estrada",
+      company: "Caja Rural La Bendición",
+    },
+    {
+      quote:
+        "El profesionalismo y compromiso de FinCloud G-5.0 superaron lo esperado. Son un equipo que combina tecnología y cercanía humana, algo vital en el sector cooperativo.",
+      name: "Juan Pablo Morales",
+      company: "Fondo de Garantía MICOOPE",
+    },
+  ];
 
+
+  return (
+    <main>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <motion.h1 initial={{opacity:0, y: 10}} animate={{opacity:1, y:0}} transition={{duration:0.5}} className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
-                Transformación digital para cooperativas financieras
+              <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900"
+              >
+                FinCloud Consulting G-5.0
               </motion.h1>
-              <p className="mt-4 text-slate-600 text-lg">
-                Propuesta integral en la nube para habilitar un portal de clientes, APIs seguras e integración con sistemas existentes.
+              <p className="mt-4 text-slate-700 text-lg">
+                <span className="font-semibold">
+                  Industria 5.0: nube + humanos al centro de la banca cooperativa
+                </span>
               </p>
-              <div className="mt-6 flex gap-3">
-                <a href="#propuesta" className="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium">Ver Propuesta</a>
-                <a href="#actual" className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium">Infraestructura actual</a>
+              <p className="mt-4 text-slate-600 max-w-2xl">
+                Consultoría y ejecución para modernizar canales digitales en cooperativas financieras.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="/propuesta" className="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium">
+                  Ver Propuesta a FINCA
+                </a>
+                <a href="/equipo" className="px-5 py-3 rounded-xl border border-slate-300 text-sm font-medium">
+                  Conoce al Equipo
+                </a>
               </div>
-              <p className="mt-6 text-xs text-slate-500">
-                *Plantilla académica. Reemplazar textos por información real del equipo.
-              </p>
             </div>
+
+            {/* Solo GIFs en el Hero */}
             <div className="relative">
               <div className="aspect-[4/3] w-full rounded-3xl bg-white shadow-xl border border-slate-200 p-6">
                 <div className="grid grid-cols-2 gap-4 h-full">
-                  {features.map((f, i) => (
+                  {heroMedia.map((m, i) => (
                     <motion.div
-                      key={f.title}
+                      key={i}
                       initial={{ opacity: 0, y: 8 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.05 * i }}
-                      className="rounded-2xl p-4 border border-slate-200 bg-slate-50"
+                      className="rounded-2xl p-2 border border-slate-200 bg-slate-50 grid place-items-center"
                     >
-                      <h3 className="font-semibold text-slate-900">{f.title}</h3>
-                      <p className="text-sm text-slate-600 mt-1">{f.desc}</p>
+                      {/* <Image> no anima GIF, por eso usamos <img> */}
+                      <img src={m.src} alt={m.alt} className="rounded-xl w-full h-full object-cover" />
                     </motion.div>
                   ))}
                 </div>
@@ -98,50 +162,94 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Quiénes Somos */}
-      <section id="quienes" className="py-16">
+      {/* Métricas */}
+      <section className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">¿Quiénes somos?</h2>
-          <p className="mt-3 text-slate-600 max-w-3xl">
-            Somos un equipo especializado en modernización de plataformas financieras. Ofrecemos consultoría, diseño de arquitectura nube y desarrollo de portales para banca cooperativa.
-          </p>
-        </div>
-      </section>
-
-      {/* Situación actual */}
-      <section id="actual" className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Situación e infraestructura actual</h2>
-            <span className="text-xs text-slate-500">AS/400 • ODA • DB MySQL</span>
-          </div>
-          <div className="mt-6 grid md:grid-cols-3 gap-6">
-            <Card title="Canales actuales" desc="Sitio informativo y chat limitado. Sin portal transaccional." />
-            <Card title="Core & Datos" desc="Mainframe AS/400, BD privada y replicación a MySQL de lectura." />
-            <Card title="Cuellos de botella" desc="Sobrecarga en agencias y consultas repetitivas de clientes." />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            <Stat big="7+" small="Años de experiencia" />
+            <Stat big="60+" small="Proyectos" />
+            <Stat big="100+" small="Diseños" />
+            <Stat big="50+" small="Clientes" />
           </div>
         </div>
       </section>
 
-      {/* Propuesta */}
-      <section id="propuesta" className="py-16">
+      {/* Historia */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Propuesta de solución</h2>
-          <p className="mt-3 text-slate-600 max-w-3xl">
-            Arquitectura en nube con portal web, autenticación, APIs para lectura/escritura controlada e integración con sistemas legados. Despliegue en Vercel para el front y servicios gestionados para el backend.
+          <h2 className="text-3xl font-bold">Nuestra Historia</h2>
+          <p className="mt-4 text-slate-700 max-w-4xl">
+            FinCloud Consulting G-5.0 nació en 2018 como un grupo de profesionales apasionados por la tecnología
+            financiera y la nube. Desde nuestros primeros proyectos con cooperativas entendimos que la verdadera
+            transformación no solo consiste en migrar sistemas, sino en integrar personas, procesos y tecnología bajo
+            un mismo propósito. Evolucionamos hacia la visión de <span className="font-semibold">Industria 5.0</span>, donde la IA, la nube
+            y la ciberseguridad se combinan con el talento humano para crear soluciones centradas en las comunidades.
           </p>
-          <div className="mt-8 grid lg:grid-cols-4 md:grid-cols-2 gap-6">
-            {features.map((f) => (
-              <div key={f.title} className="rounded-2xl p-5 border bg-white border-slate-200 shadow-sm">
-                <h3 className="font-semibold">{f.title}</h3>
-                <p className="text-sm text-slate-600 mt-1">{f.desc}</p>
+        </div>
+      </section>
+
+      {/* Misión & Visión */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="rounded-2xl p-8 border bg-white border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-semibold">Misión</h3>
+              <p className="mt-3 text-slate-700">
+                Ofrecer soluciones tecnológicas personalizadas y de alta calidad que fortalezcan a cooperativas y
+                entidades financieras. Facilitar la inclusión financiera mediante plataformas accesibles, seguras y
+                escalables que preparen a las organizaciones para el futuro digital.
+              </p>
+            </div>
+            <div className="rounded-2xl p-8 border bg-white border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-semibold">Visión</h3>
+              <p className="mt-3 text-slate-700">
+                Ser reconocidos en Centroamérica como la consultora líder en transformación digital para el sector
+                cooperativo, distinguiéndonos por integrar tecnologías de vanguardia con un enfoque humano, construyendo
+                relaciones duraderas basadas en la confianza y el éxito compartido.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Valores */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold">Nuestros Valores</h2>
+          <ul className="mt-6 grid md:grid-cols-2 gap-4 list-disc list-inside text-slate-700">
+            <li><span className="font-medium">Innovación con propósito:</span> aplicamos tecnología donde genera impacto real.</li>
+            <li><span className="font-medium">Confianza:</span> ética, transparencia y cumplimiento como base de cada entrega.</li>
+            <li><span className="font-medium">Colaboración:</span> trabajamos como un solo equipo con nuestros clientes.</li>
+            <li><span className="font-medium">Inclusión:</span> diseñamos experiencias pensadas para todos los usuarios.</li>
+            <li><span className="font-medium">Excelencia:</span> buscamos superar expectativas en calidad y resultados.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ¿Qué hacemos? / Servicios */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">¿Qué hacemos nosotros?</h2>
+            <p className="mt-3 text-slate-600">
+              Arquitectura en nube, portales de clientes y APIs integradas con sistemas heredados.
+            </p>
+          </div>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {services.map((s) => (
+              <div key={s.title} className="rounded-2xl p-6 border bg-white border-slate-200 shadow-sm">
+                <div className="h-10 w-10 rounded-xl grid place-items-center bg-slate-900 text-white">
+                  {s.icon}
+                </div>
+                <h3 className="mt-4 font-semibold">{s.title}</h3>
+                <p className="text-sm text-slate-700 mt-2">{s.desc}</p>
               </div>
             ))}
           </div>
 
           {/* Roadmap */}
-          <div className="mt-10">
-            <h3 className="font-semibold">Plan de ejecución</h3>
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold">Plan de ejecución</h3>
             <ol className="mt-4 grid md:grid-cols-4 gap-4">
               {steps.map((s) => (
                 <li key={s.n} className="rounded-2xl p-4 bg-slate-50 border border-slate-200">
@@ -155,103 +263,33 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Ventajas & Limitantes */}
-      <section id="ventajas" className="py-16 bg-white">
+      {/* Testimonios */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Ventajas</h2>
-          <ul className="mt-4 grid md:grid-cols-2 gap-4 list-disc list-inside text-slate-700">
-            <li>Escalabilidad elástica y reducción de carga en agencias.</li>
-            <li>Experiencia de cliente mejorada con autoservicio 24/7.</li>
-            <li>Integración progresiva con sistemas actuales sin interrupciones.</li>
-            <li>Monitoreo, auditoría y cumplimiento fortalecidos.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="limitantes" className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Condiciones y limitantes</h2>
-          <ul className="mt-4 grid md:grid-cols-2 gap-4 list-disc list-inside text-slate-700">
-            <li>Dependencias de integración con core legacy y ODA.</li>
-            <li>Gobierno de datos y seguridad: definición de roles y permisos.</li>
-            <li>Gestión del cambio y capacitación del personal.</li>
-            <li>Costos operativos mensuales en nube y observabilidad.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Contacto */}
-      <section id="contacto" className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-2xl font-bold">Contacto</h2>
-              <p className="mt-3 text-slate-600">
-                ¿Quieres una demo? Déjanos tu correo y agenda una reunión.
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert(`Gracias, pronto te escribimos a: ${email}`);
-                }}
-                className="mt-6 flex gap-3"
-              >
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  className="w-full md:w-auto flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400"
-                />
-                <button className="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium">
-                  Enviar
-                </button>
-              </form>
-            </div>
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-              <dl className="grid sm:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <dt className="text-slate-500">Correo</dt>
-                  <dd className="font-medium">contacto@fincloud.example</dd>
-                </div>
-                <div>
-                  <dt className="text-slate-500">Sitio</dt>
-                  <dd className="font-medium">fincloud.example</dd>
-                </div>
-                <div>
-                  <dt className="text-slate-500">Teléfono</dt>
-                  <dd className="font-medium">(+502) 5555-5555</dd>
-                </div>
-                <div>
-                  <dt className="text-slate-500">Dirección</dt>
-                  <dd className="font-medium">Guatemala, GT</dd>
-                </div>
-              </dl>
-            </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">Lo que nuestros clientes dicen</h2>
+          </div>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <figure key={i} className="rounded-2xl p-6 border bg-white border-slate-200 shadow-sm">
+                <blockquote className="text-slate-700">{t.quote}</blockquote>
+                <figcaption className="mt-4 text-sm text-slate-500">
+                  <span className="font-medium text-slate-700">{t.name}</span> · {t.company}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-10 border-t border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} FinCloud Consulting G-5.0. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-slate-700">Términos</a>
-            <a href="#" className="hover:text-slate-700">Privacidad</a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
 
-function Card({ title, desc }: { title: string; desc: string }) {
+function Stat({ big, small }: { big: string; small: string }) {
   return (
-    <div className="rounded-2xl p-5 border bg-slate-50 border-slate-200">
-      <h3 className="font-semibold">{title}</h3>
-      <p className="text-sm text-slate-600 mt-1">{desc}</p>
+    <div className="rounded-2xl p-6 border bg-white border-slate-200 shadow-sm text-center">
+      <div className="text-3xl font-bold text-slate-900">{big}</div>
+      <div className="text-sm text-slate-600">{small}</div>
     </div>
   );
 }
