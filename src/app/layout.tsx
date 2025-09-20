@@ -1,6 +1,7 @@
 "use client"
 import "./globals.css";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,12 +15,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <span className="font-semibold">FinCloud Consulting G-5.0</span>
             </div>
             <nav className="hidden md:flex items-center gap-6 text-sm">
-              <a href="/" className="hover:text-slate-900">Inicio</a>
-              <a href="/equipo" className="hover:text-slate-900">Equipo</a>
-              <a href="/propuesta" className="hover:text-slate-900">Propuesta</a>
-              <a href="#contacto" className="hover:text-slate-900">Contacto</a>
+              <Link href="/" className="hover:text-slate-900">Inicio</Link>          
+              <Link href="/equipo" className="hover:text-slate-900">Equipo</Link>    
+              <Link href="/propuesta" className="hover:text-slate-900">Propuesta</Link>
+              <a href="#contacto" className="hover:text-slate-900">Contacto</a>       
             </nav>
-            <a href="/propuesta" className="text-sm font-medium px-4 py-2 rounded-xl bg-slate-900 text-white">Ver Propuesta</a>
+            <Link href="/propuesta" className="text-sm font-medium px-4 py-2 rounded-xl bg-slate-900 text-white">Ver Propuesta</Link>
           </div>
         </header>
 
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   onSubmit={(e) => { e.preventDefault(); alert("Gracias, te contactamos pronto."); }}
                   className="mt-6 flex gap-3"
                 >
-                  <input type="email" required placeholder="tu@email.com" className="w-full md:w-auto flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400"/>
+                  <input type="email" required placeholder="tu@email.com" className="w-full md:w-auto flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400" />
                   <button className="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium">Enviar</button>
                 </form>
               </div>
@@ -67,7 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Footer */}
         <footer className="py-10 border-t border-slate-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} FinCloud Consulting G-5.0 — "Industria 5.0 aplicada a la banca cooperativa"</p>
+            <p>© {new Date().getFullYear()} FinCloud Consulting G-5.0 — Industria 5.0 aplicada a la banca cooperativa</p>
             <div className="flex items-center gap-4">
               <a href="#" className="hover:text-slate-700">Términos</a>
               <a href="#" className="hover:text-slate-700">Privacidad</a>

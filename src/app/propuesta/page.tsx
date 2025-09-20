@@ -2,7 +2,6 @@
 import {
   Building2,
   Users,
-  CreditCard,
   Server,
   Database,
   Network,
